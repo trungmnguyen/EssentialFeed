@@ -14,7 +14,7 @@ public protocol HTTPClient {
 public final class RemoteFeedLoader {
     private let url: URL
     private let client: HTTPClient
-    
+
     public enum Error: Swift.Error {
         case connectivity
     }
@@ -24,8 +24,8 @@ public final class RemoteFeedLoader {
         self.url = url
     }
 
-    public func load(completion: @escaping (Error) -> Void = { _ in }) {
-        client.get(from: url) { error in
+    public func load(completion: @escaping (Error) -> Void) {
+        client.get(from: url) { _ in
             completion(.connectivity)
         }
     }
