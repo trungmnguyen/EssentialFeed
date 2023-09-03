@@ -16,7 +16,7 @@ jobs:
   # A workflow run is made up of one or more jobs that can run sequentially or in parallel
   build-and-test:
     # The type of runner that the job will run on
-    runs-on: macos-latest
+    runs-on: macos-13
     timeout-minutes: 10
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -24,8 +24,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     - uses: actions/checkout@v3
 
-    - name: Select Xcode
-      run:  sudo xcode-select -switch /Applications/Xcode_14.3.app
+	  - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_14.3.app
 
 	  - name: Xcode version
       run: /usr/bin/xcodebuild -version
